@@ -1,0 +1,17 @@
+extends layout
+block content
+	div.container
+		form(action='signup/process', method='post')
+			.form-group
+				label
+					h3 Name
+				input.form-control(type='text', name='user', id='user')
+			.form-group
+				label
+					h3 Email
+				input.form-control(type='email', name='email', id='email')
+			.form-group
+				label
+					h3 Password
+				input.form-control(type='password', name='password', id='password')
+			button.btn.btn-default(type='submit') Submit

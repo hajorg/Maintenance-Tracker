@@ -1,0 +1,9 @@
+extends layout
+
+block content
+  h1= title
+  New Notifications
+    h2 Resolved Requests
+    ul.list-group#display-resolved
+    a.btn.btn-default(href="/requests") Make New Request
+  script(src="javascripts/manageRequests.js")

@@ -1,0 +1,25 @@
+extends layout
+block content
+	.container
+		h2 Manage Maintenance/Repairs
+		row
+			h2 Notifications
+			form(method="post", action="staff/add")
+				.form-group
+					label
+						h3 Subject
+					input.form-control(type='text',name='subject',placeholder='Enter subject',id="subject")
+				.form-group
+					label
+						h3 Description
+					textarea.form-control(name='message',id='message',row='10',placeholder='Enter complaints')
+				.form-group
+					label
+						h3 Phone
+					input.form-control(type='text',name='phone',placeholder='Enter Phone number',id="phone")
+				.form-group
+					label
+						upload
+					input(type="file", name="image", id="image", accept="image/*")
+				button.btn.btn-default(type='submit',id="make_staff_request") Submit Request
+	script(src="javascripts/manageRequests.js")

@@ -1,0 +1,34 @@
+extends layout
+block content
+	.container
+		h2 Manage Maintenance/Repairs
+		.row
+			h2 New Notifications
+			table.table#f-lists
+		.row
+			h2 Approve Notifications
+			table.table#s-lists
+		.row
+			
+			form(method="POST", action="admin/addRequest")
+				.form-group
+					label
+						h3 Subject
+					input.form-control(type='text',name='subject',placeholder='Enter subject',id="subject")
+				.form-group
+					label
+						h3 Phone
+					input.form-control(type='text',name='phone',placeholder='Enter Phone Number',id="phone")
+				.form-group
+					label
+						h3 Description
+					textarea.form-control(name='message',id='message',row='10',placeholder='Enter complaints...')
+				button.btn.btn-default(type='submit') Add Request
+		div.row
+			h2 Add Staffs
+			form(method='post',action='admin/add')
+				div#holder
+					ul.list-group#lists.f-lists
+				button.btn.btn-default(type='submit') Add User
+	script(src="https://www.gstatic.com/firebasejs/3.5.2/firebase.js")
+	script(src="javascripts/manageAdmin.js")

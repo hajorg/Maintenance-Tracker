@@ -1,0 +1,18 @@
+extends layout
+block content
+	div.container
+		form(action='signin/process', method='post')
+			.form-group
+				label
+					h3 Email
+				input.form-control(type='email', name='email', id='email')
+			.form-group
+				label
+					h3 Password
+				input.form-control(type='password', name='password', id='password')
+			button.btn.btn-default(type='submit', id='submit') Submit
+
+	div#firebaseui-auth-container
+
+	script(src='https://www.gstatic.com/firebasejs/ui/live/0.5/firebase-ui-auth.js')
+	script(src='javascripts/authUser.js')

@@ -1,0 +1,53 @@
+doctype html
+html
+  head
+    meta(charset='utf-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    title= title
+    link(rel='stylesheet', href='/stylesheets/bootstrap.min.css')
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    script(src="https://www.gstatic.com/firebasejs/3.5.2/firebase.js")
+    script(src="javascripts/general1.js")
+    
+    
+  body
+    nav.navbar.navbar-inverse.navbar-fixed-top
+      .container
+        .navbar-header
+          button.navbar-toggle.collapsed(type='button', data-toggle='collapse', data-target='#navbar', aria-expanded='false', aria-controls='navbar')
+            span.sr-only Toggle navigation
+            span.icon-bar
+            span.icon-bar
+            span.icon-bar
+          a.navbar-brand(href='#') Project name
+        #navbar.collapse.navbar-collapse.navbar-right
+          ul.nav.navbar-nav
+            li.active
+              a(href='/dashboard') Home
+            li
+              a(href='/users') User
+            li.login
+              a(href='/signin') Sign In
+            li.login
+              a(href='/signup') Sign Up
+            li#note
+              a(href='/users') new Notification
+            li.signed-in
+              a(href="/requests") Make New Request
+            li.signed-in
+              a(href="/signout") Sign Out
+    block content
+    
+    div.container
+      footer
+        p &copy; 2016, All rights reserved
+    script(src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js")
+    script(src="javascripts/bootstrap.min.js")
+    script(src="javascripts/general.js")
+
+    
+
+
+    
+
