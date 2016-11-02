@@ -1,6 +1,6 @@
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  /*padding: 50px;*/
+  /*font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;*/
 }
 
 a {
@@ -12,6 +12,9 @@ li#note {
 li#login {
 	display: block;
 }
-.signed-in {
+li.signed-in {
+	display: none;
+}
+form.form1 {
 	display: none;
 }

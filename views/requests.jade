@@ -1,15 +1,14 @@
 extends layout
 
 block content
-	h2 Make Maintenance/Repairs Request
+	h5.center Make Maintenance/Repairs Request
 	.container
 		form(method="POST", action="requests/add")
-			.form-group
-				label
-					h3 Subject
-				input.form-control(type='text',name='subject',placeholder='Enter subject',id="subject")
-			.form-group
-				label
-					h3 Description
-				textarea.form-control(name='message',id='message',row='10',placeholder='Enter complaints')
-			button.btn.btn-default(type='submit',id="make_request") Submit Request
+			.row
+				.input-field
+					input(type='text',name='subject',id='subject')
+					label(for='subject') Subject
+				.input-field
+					textarea(name='message',id='message',class="materialize-textarea",placeholder='Enter complaints...')
+					label(for='message') Description
+				button.btn.waves-effect.waves-light(type='submit', name='action', id="make_request") Submit

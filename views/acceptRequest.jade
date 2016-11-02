@@ -1,0 +1,30 @@
+extends layout
+block content
+	.container
+		.row
+			div#display 
+				h5 Request Made
+				p#title
+				p#description
+				p#status
+				p#date
+				p#image_title
+		.row
+			form(method="post", action="/accepted")
+				.row
+					.input-field.col.s6
+						//textarea(name='message',id='message',class="materialize-textarea")
+						//label(for='message') Reason for Reject
+						select.browser-default#catch(name='staff')
+				.input-field
+					input(type="hidden",name="unique_id",id="unique_id")
+				.input-field
+					input(type="hidden",name="unique_title",id="unique_title")
+				button.btn.waves-effect.waves-light(type='submit', name='action', id="accept_request" onclick="return window.confirm('Do you really want to accept this request?')") Accept Request 
+				a.btn.waves-effect.waves-light(href='/admin', name='action', id="cancel_accept" onclick="return window.confirm('are you sure')") Cancel
+	script(src="https://www.gstatic.com/firebasejs/3.5.2/firebase.js")
+	script(src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js")
+	script(src="../../javascripts/manageAdmin.js")
+	script(src="../../javascripts/general.js")
+	script(src="../../javascripts/materialize.js")
+	//script $(function(){$(".button-collapse").sideNav()})

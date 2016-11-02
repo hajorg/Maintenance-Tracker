@@ -1,25 +1,36 @@
 extends layout
 block content
 	.container
-		h2 Manage Maintenance/Repairs
-		row
-			h2 Notifications
-			form(method="post", action="staff/add")
-				.form-group
-					label
-						h3 Subject
-					input.form-control(type='text',name='subject',placeholder='Enter subject',id="subject")
-				.form-group
-					label
-						h3 Description
-					textarea.form-control(name='message',id='message',row='10',placeholder='Enter complaints')
-				.form-group
-					label
-						h3 Phone
-					input.form-control(type='text',name='phone',placeholder='Enter Phone number',id="phone")
-				.form-group
-					label
-						upload
-					input(type="file", name="image", id="image", accept="image/*")
-				button.btn.btn-default(type='submit',id="make_staff_request") Submit Request
+		.row
+			h3.center.teal-text Add Request
+			.card-panel.col.s12.m6.offset-m3
+				form(action='signup/process', method='post')
+					.row
+						//.input-field.col.s12
+						//	input#email.validate(type='email', name='email')
+						//	label(for='email', data-error='Wrong') Email
+					.row
+						.input-field.col.s12
+							input(type='text', name='subject', id='subject')
+							label(for='subject') Subject
+					row
+						.input-field.col.s12
+							textarea.materialize-textarea(name='message', id='message')
+							label(for='message') Description
+					row
+						.input-field.col.s12.file-field
+							.btn
+								span Image
+								input(type='file',accept='image/*',id='image')
+							.file-path-wrapper
+								input.file-path.validate(type='text')
+					.row
+						.input-field.col.s12
+							input#phone(type='text', name='phone')
+							label(for='phone', data-error='Wrong') Phone
+					.row
+						.input-field.col.s12.offset-m4
+							button.btn.waves-effect.waves-light(type='submit', name='action',id="make_staff_request")
+								| Request
+								i.material-icons.right send
 	script(src="javascripts/manageRequests.js")

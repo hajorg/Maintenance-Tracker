@@ -1,6 +1,8 @@
 {
   "name": "maintenance_tracker",
   "version": "1.0.0",
+  "description": "A maintenance tracker app where users can make requests and will be resolved by both staffs and Admin",
+  "main": "app.js",
   "private": true,
   "scripts": {
     "start": "node ./bin/www"
@@ -15,5 +17,8 @@
     "jade": "~1.11.0",
     "morgan": "~1.7.0",
     "serve-favicon": "~2.3.0"
+  },
+  "engines": {
+    "node": "6.3.1"
   }
 }

@@ -1,34 +1,23 @@
 extends layout
 block content
 	.container
-		h2 Manage Maintenance/Repairs
 		.row
-			h2 New Notifications
-			table.table#f-lists
+			h4.center.teal-text Manage Repairs/Maintenance Requests
 		.row
-			h2 Approve Notifications
-			table.table#s-lists
+			h5.teal-text Pending Requests
+			table.highlight#f-lists
 		.row
-			
-			form(method="POST", action="admin/addRequest")
-				.form-group
-					label
-						h3 Subject
-					input.form-control(type='text',name='subject',placeholder='Enter subject',id="subject")
-				.form-group
-					label
-						h3 Phone
-					input.form-control(type='text',name='phone',placeholder='Enter Phone Number',id="phone")
-				.form-group
-					label
-						h3 Description
-					textarea.form-control(name='message',id='message',row='10',placeholder='Enter complaints...')
-				button.btn.btn-default(type='submit') Add Request
-		div.row
-			h2 Add Staffs
+			h5.teal-text Resolved Requests?
+			table.highlight#s-lists
+		.row
+			h5.teal-text Escalated Requests
+			table.highlight#escalated-lists
+		.row
+			h5#add-staff.teal-text Add Staffs
 			form(method='post',action='admin/add')
 				div#holder
-					ul.list-group#lists.f-lists
-				button.btn.btn-default(type='submit') Add User
+					ul.collection#lists.f-lists.col.s6
+
+
 	script(src="https://www.gstatic.com/firebasejs/3.5.2/firebase.js")
 	script(src="javascripts/manageAdmin.js")

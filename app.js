@@ -53,20 +53,51 @@ app.use("/dashboard",function (req, res, next) {
   } 
   next(); // <-- important!
 });
-
+//Sign out
 app.get("/signout", function (req, res, next) {
   res.clearCookie("session");
+  firebase.auth().signOut();
   res.redirect("/signin")
 });
+//Reject a request with message
+app.post("/rejected", function (req, res, next) {
+  var message = req.body.message;
+  var title = req.body.unique_title;
+  var id = req.body.unique_id;
+  firebase.database().ref("requests/"+id).update({
+    status: "declined"
+  });
+  firebase.database().ref("message").push({
+    message: message,
+    user_id: id,
+    title: title
+  });
+  res.redirect("/admin");
+});
+app.post("/accepted", function (req, res, next) {
+  var staff = req.body.staff;
+  var title = req.body.unique_title;
+  var id = req.body.unique_id;
+  firebase.database().ref("requests/"+id).update({
+    status: "processing"
+  });
+  firebase.database().ref("processing").push({
+    staff_id: staff,
+    user_id: id,
+    title: title
+  });
+  res.redirect("/admin");
+});
 
+app.use('/', routes);
 app.use('/dashboard', routes);
-// app.use('/signout', routes);
 app.use('/users', users);
 app.use('/signin', signIn);
 app.use('/requests', requests);
 app.use('/admin', admin);
 app.use('/staff', staff);
 app.use('/signup', signUp);
+app.use('/rejectRequests', admin);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

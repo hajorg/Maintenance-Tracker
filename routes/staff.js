@@ -8,7 +8,7 @@ router.get('/', function (req, res, next) {
 router.post('/add', function (req, res, next) {
 	
     var filename = req.body.image;
-    var storageRef = firebase.storage().ref();
+    // var storageRef = firebase.storage().ref();
     var cookie = req.cookies.session;
     var requests = firebase.database().ref("requests/"+cookie);
     requests.set({
@@ -18,7 +18,8 @@ router.post('/add', function (req, res, next) {
     	date: Date.now(),
     	status: "pending"
     });
-    firebase.storage().ref("images/"+filename);
+    var storageRef = firebase.storage().ref("images/"+filename);
+    storageRef.put(filename);
     res.redirect("/dashboard")
 })
 

@@ -21,6 +21,7 @@ router.post('/process', function(req,res,next) {
 		});
 	}).catch(function(error) {
 		console.log(error.message);
+		res.redirect("/signin");
 	});
 });
 

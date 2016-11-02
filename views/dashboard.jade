@@ -1,7 +1,14 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to dashboard
-  .container
-    a.btn.btn-default(href="/requests") Make new Request
+	.container
+		.row
+			.card-panel
+				h4 Dashboard
+			.row
+				h5 Approved Requests
+				ul.collection.col.s6#display-processing
+			.row
+				h5 Maintenance/Repairs To Do
+				ul.collectiondiv#todo
+	script(src="javascripts/manageDashboard.js")
